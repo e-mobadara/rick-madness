@@ -27,5 +27,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     //E-mobadara-lib
-    implementation 'com.github.e-mobadara:2d-game-lib:v1.0'
+    implementation 'com.github.e-mobadara:2d-game-lib:v1.1'
 }

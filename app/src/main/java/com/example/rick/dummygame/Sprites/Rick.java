@@ -11,7 +11,8 @@ public class Rick extends Sprite {
 
         //To make the sprite Draggable.
         // (We will be working on the method names on the next release of the lib. Sorry for now)
-        setStatique(false);
+        setStatic(false);
+        //All sprites are Static by default => You can make your decore out of static sprites
     }
 
     @Override
