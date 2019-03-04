@@ -12,7 +12,20 @@ import com.example.rick.dummygame.assets.Hero;
 public class MainActivity extends AndroidGame {
     @Override
     public Screen getInitScreen() {
+        //Initialize the assets you will be working with on your screens here.
+        //It is better to have all of them loaded, until you have performance problems then, umm,yeah
+        //We will have to figure that out :')
         Hero.avatar = getGraphics().newImage(R.drawable.rick,Graphics.ImageFormat.ARGB8888,getResources());
+
+        //The method is going to
         return new MainScreen(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        //Let's make life easy on your device and get rid of the memo we dont use
+        //because Android system does not do that always.
+        super.onDestroy();
+        Hero.avatar.dispose();
     }
 }
