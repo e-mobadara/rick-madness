@@ -3,9 +3,11 @@ package com.example.rick.dummygame;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.emobadaragaminglib.Base.Audio;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Implementation.AndroidGame;
+import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import com.example.rick.dummygame.GameViews.MainScreen;
 import com.example.rick.dummygame.assets.Hero;
 
@@ -16,7 +18,7 @@ public class MainActivity extends AndroidGame {
         //It is better to have all of them loaded, until you have performance problems then, umm,yeah
         //We will have to figure that out :')
         Hero.avatar = getGraphics().newImage(R.drawable.rick,Graphics.ImageFormat.ARGB8888,getResources());
-
+        Hero.voice = (AndroidSound) getAudio().createSound(R.raw.tinyrick);
         //The method is going to
         return new MainScreen(this);
     }
@@ -27,5 +29,6 @@ public class MainActivity extends AndroidGame {
         //because Android system does not do that always.
         super.onDestroy();
         Hero.avatar.dispose();
+        Hero.voice.dispose();
     }
 }

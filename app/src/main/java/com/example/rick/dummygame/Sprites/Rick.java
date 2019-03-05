@@ -18,4 +18,5 @@ public class Rick extends Sprite {
     public void draw(Game game) {
         super.draw(game);
     }
+
 }
