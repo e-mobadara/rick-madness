@@ -1,5 +1,7 @@
 package com.example.rick.dummygame.GameViews;
 
+import android.util.Log;
+
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
@@ -7,7 +9,7 @@ import com.example.rick.dummygame.Sprites.Rick;
 import com.example.rick.dummygame.assets.Hero;
 
 public class MainScreen extends Screen {
-
+    private final String TAG = "MainScreen: ";
     private Rick rick;
     public MainScreen(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
@@ -17,17 +19,8 @@ public class MainScreen extends Screen {
         rick = new Rick(game,Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(rick);
+        Log.d(TAG, "Constructor Called");
 
-    }
-
-    @Override
-    public void handleTouchUp(int x, int y, int pointer) {
-        super.handleTouchUp(x, y, pointer);
-    }
-
-    @Override
-    public void handleTouchDown(int x, int y, int pointer) {
-        super.handleTouchDown(x, y, pointer);
     }
 
     @Override
@@ -37,7 +30,7 @@ public class MainScreen extends Screen {
         //other stuff that it can do.
         Graphics g = game.getGraphics();
         //Redrawing Rick multiple times
-        rick.draw(game);
+        /*Uncomment this line and see what happens */g.drawARGB(255,0,0,0);
     }
 
     @Override
@@ -49,11 +42,11 @@ public class MainScreen extends Screen {
     public void resume() {
 
     }
-    
+    /*
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
-    }
+    }*/
 
     @Override
     public void dispose() {
