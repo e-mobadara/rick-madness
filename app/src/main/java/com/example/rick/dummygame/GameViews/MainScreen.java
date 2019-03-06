@@ -5,23 +5,28 @@ import android.util.Log;
 import com.example.emobadaragaminglib.Base.Game;
 import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
+import com.example.rick.dummygame.Sprites.Morty;
 import com.example.rick.dummygame.Sprites.Rick;
 import com.example.rick.dummygame.assets.Hero;
+import com.example.rick.dummygame.assets.Obstacles;
 
 public class MainScreen extends Screen {
     private final String TAG = "MainScreen: ";
-    private Rick rick1;
-    private Rick rick2;
+    private Rick rick;
+    private Morty morty;
+    private int mX ;
+    private int mY ;
+    private int myHack=0; //used to get some time before re-rendering
     public MainScreen(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
 
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        rick1 = new Rick(game,Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
-        rick2 = new Rick(game,Hero.avatar,0,0,100,100);
+        rick = new Rick(game,Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
+        morty = new Morty(game,Obstacles.avatar,mX,mY,100,100);
         //Now that everything is good let's add the Sprite to the list that we have.
-        addSprite(rick1);
-        addSprite(rick2);
+        addSprite(rick);
+        addSprite(morty);
 
         Log.d(TAG, "Constructor Called");
 
@@ -35,20 +40,27 @@ public class MainScreen extends Screen {
         Graphics g = game.getGraphics();
         //Redrawing Rick multiple times
         /*Uncomment this line and see what happens */g.drawARGB(255,0,0,0);
-
+        if(myHack==10) {
+            mX = (int) Math.floor(Math.random() * g.getWidth());
+            mY = (int) Math.floor(Math.random() * g.getHeight());
+            morty.setX(mX);
+            morty.setY(mY);
+            myHack=0;
+        }
+        myHack++;
+        if(rickGotHit()){
+            Obstacles.voice.play(1);
+        }
     }
 
     @Override
     public void handleDragging(int x, int y, int pointer) {
         super.handleDragging(x, y, pointer);
-        if(rick1.contain(rick2.getX(),rick2.getY())){
-            Hero.voice.play(1);
-        }
     }
 
     @Override
     public void pause() {
-        dispose();
+
     }
 
     @Override
@@ -72,5 +84,10 @@ public class MainScreen extends Screen {
     @Override
     public void backButton() {
         pause();
+    }
+
+    boolean rickGotHit(){
+        if(rick.contain(morty.getX(),morty.getY())) return true;
+        return false;
     }
 }

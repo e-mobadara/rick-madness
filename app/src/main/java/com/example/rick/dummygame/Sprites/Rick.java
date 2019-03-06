@@ -14,9 +14,4 @@ public class Rick extends Sprite {
         //All sprites are Static by default => You can make your decoration out of static sprites
     }
 
-    @Override
-    public void draw(Game game) {
-        super.draw(game);
-    }
-
 }

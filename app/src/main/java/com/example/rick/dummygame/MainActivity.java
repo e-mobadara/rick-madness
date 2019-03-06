@@ -10,6 +10,7 @@ import com.example.emobadaragaminglib.Implementation.AndroidGame;
 import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import com.example.rick.dummygame.GameViews.MainScreen;
 import com.example.rick.dummygame.assets.Hero;
+import com.example.rick.dummygame.assets.Obstacles;
 
 public class MainActivity extends AndroidGame {
     @Override
@@ -19,6 +20,8 @@ public class MainActivity extends AndroidGame {
         //We will have to figure that out :')
         Hero.avatar = getGraphics().newImage(R.drawable.rick,Graphics.ImageFormat.ARGB8888,getResources());
         Hero.voice = (AndroidSound) getAudio().createSound(R.raw.tinyrick);
+        Obstacles.avatar = getGraphics().newImage(R.drawable.morty,Graphics.ImageFormat.ARGB8888,getResources());
+        Obstacles.voice = (AndroidSound) getAudio().createSound(R.raw.morty);
         //The method is going to
         return new MainScreen(this);
     }
