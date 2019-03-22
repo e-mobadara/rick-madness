@@ -23,4 +23,5 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.example.rick.dummygame", appContext.getPackageName());
     }
+
 }
