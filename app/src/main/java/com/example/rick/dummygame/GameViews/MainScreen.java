@@ -7,6 +7,7 @@ import com.example.emobadaragaminglib.Base.Graphics;
 import com.example.emobadaragaminglib.Base.Screen;
 import com.example.rick.dummygame.Sprites.Morty;
 import com.example.rick.dummygame.Sprites.Rick;
+import com.example.rick.dummygame.assets.BackGroundMusic;
 import com.example.rick.dummygame.assets.Hero;
 import com.example.rick.dummygame.assets.Obstacles;
 
@@ -20,7 +21,8 @@ public class MainScreen extends Screen {
     public MainScreen(Game game) {
         //This is gonna handle other stuff for you under the hood.We will see more of that next time.
         super(game);
-
+        BackGroundMusic.bg_music.play();
+        BackGroundMusic.bg_music.setLooping(true);
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
         rick = new Rick(game,Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
         morty = new Morty(game,Obstacles.avatar,mX,mY,100,100);
@@ -60,12 +62,12 @@ public class MainScreen extends Screen {
 
     @Override
     public void pause() {
-
+        BackGroundMusic.bg_music.pause();
     }
 
     @Override
     public void resume() {
-
+        BackGroundMusic.bg_music.play();
     }
 
     //The handle dragging is activated anytime you drag on your screen.

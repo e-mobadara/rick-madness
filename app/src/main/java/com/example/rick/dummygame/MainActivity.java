@@ -9,6 +9,7 @@ import com.example.emobadaragaminglib.Base.Screen;
 import com.example.emobadaragaminglib.Implementation.AndroidGame;
 import com.example.emobadaragaminglib.Implementation.AndroidSound;
 import com.example.rick.dummygame.GameViews.MainScreen;
+import com.example.rick.dummygame.assets.BackGroundMusic;
 import com.example.rick.dummygame.assets.Hero;
 import com.example.rick.dummygame.assets.Obstacles;
 
@@ -22,6 +23,7 @@ public class MainActivity extends AndroidGame {
         Hero.voice = (AndroidSound) getAudio().createSound(R.raw.tinyrick);
         Obstacles.avatar = getGraphics().newImage(R.drawable.morty,Graphics.ImageFormat.ARGB8888,getResources());
         Obstacles.voice = (AndroidSound) getAudio().createSound(R.raw.morty);
+        BackGroundMusic.bg_music = getAudio().createMusic(R.raw.shaunthesheep);
         //The method is going to
         return new MainScreen(this);
     }
