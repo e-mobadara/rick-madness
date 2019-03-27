@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.e-mobadara:2d-game-lib-v1.2.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/2d-game-lib-v1.2.1.aar/3fcc43206cb0c391a350081fda6ae19d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/2d-game-lib-v1.2.1.aar/3fcc43206cb0c391a350081fda6ae19d/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.e-mobadara/2d-game-lib/v1.2.1/7fdd0aabdeeaaf56dbea803277b6ba2b64783f35/2d-game-lib-v1.2.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

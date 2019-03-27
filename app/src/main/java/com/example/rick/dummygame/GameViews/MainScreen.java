@@ -24,8 +24,8 @@ public class MainScreen extends Screen {
         BackGroundMusic.bg_music.play();
         BackGroundMusic.bg_music.setLooping(true);
         //Now that your Sprite is Ready, let's initialize it and control where we are going to put it
-        rick = new Rick(game,Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
-        morty = new Morty(game,Obstacles.avatar,mX,mY,100,100);
+        rick = new Rick(Hero.avatar,game.getScreenHeight()/2,game.getScreenWidth()/2,100,100);
+        morty = new Morty(Obstacles.avatar,mX,mY,100,100);
         //Now that everything is good let's add the Sprite to the list that we have.
         addSprite(rick);
         addSprite(morty);
